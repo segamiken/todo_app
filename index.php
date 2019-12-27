@@ -1,4 +1,7 @@
 <?php
+
+    session_start();
+
     require_once(__DIR__ . '/config.php');
     require_once(__DIR__ . '/function.php');
     require_once(__DIR__ . '/Todo.php');
@@ -27,8 +30,8 @@
 
         <ul id="todos">
         <?php foreach ($todos as $todo) : ?>
-            <li id="to_do_<?= h($todo->id); ?>" data-id="<?= h($todo->id); ?>">
-                <input type="checkbox" class="udpate_todo" <?php if ($todo->state === '1') 
+            <li id="todo_<?= h($todo->id); ?>" data-id="<?= h($todo->id); ?>">
+                <input type="checkbox" class="update_todo" <?php if ($todo->state === '1') 
                     { echo 'checked';}?>>
                 <span class="todo_title <?php if ($todo->state === '1') { echo 'done';}?>">
                     <?= h($todo->title); ?>
@@ -37,9 +40,9 @@
             </li>
         <?php endforeach; ?>
         </ul>
-
+        <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">
     </div>
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="todo.js"></script>
 </body>
