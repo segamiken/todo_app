@@ -25,6 +25,10 @@ ul > li {
     font-size: 16px;
 }
 
+li#todo_template {
+    display: none;
+}
+
 .delete_todo {
     float: right;
     display: inline-block;
@@ -35,3 +39,4 @@ ul > li {
 .done {
     text-decoration: line-through;
 }
+

@@ -24,7 +24,7 @@
     <div id="container">
         
         <h1>Todos</h1>
-        <form action="">
+        <form action="" id="new_todo_form">
             <input type="text" id="new_todo" placeholder="what needs to be done?">
         </form>
 
@@ -39,6 +39,14 @@
                 <div class="delete_todo">×</div>
             </li>
         <?php endforeach; ?>
+
+        <!--部分テンプレート -->
+        <li id="todo_template" data-id="">
+            <input type="checkbox" class="update_todo">
+            <span class="todo_title"></span>
+            <div class="delete_todo">×</div>
+        </li>
+
         </ul>
         <input type="hidden" id="token" value="<?= h($_SESSION['token']); ?>">
     </div>
